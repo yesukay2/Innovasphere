@@ -55,6 +55,11 @@ const storage = multer.diskStorage({
   
   const upload = multer({ storage });
 
+
+  app.get('/', (req, res)=>{
+    res.json("Backend running perfectly")
+  })
+
 // Fetch all jobs
 app.get('/api/jobs', async (req, res) => {
   try {
