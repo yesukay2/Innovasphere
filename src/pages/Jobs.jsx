@@ -9,7 +9,7 @@ const Jobs = () => {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('http://localhost:5000/api/jobs')
+    axios.get('https://innovasphere.fly.dev/api/jobs')
       .then(response => {
         if (Array.isArray(response.data)) {
           setJobs(response.data);

@@ -20,7 +20,7 @@ const Apply = () => {
 
   useEffect(() => {
     console.log(`Fetching job with ID: ${jobId}`);
-    axios.get(`http://localhost:5000/api/jobs/${jobId}`)
+    axios.get(`https://innovasphere.fly.dev/api/jobs/${jobId}`)
       .then(response => {
         setJob(response.data);
         console.log(response.data);
