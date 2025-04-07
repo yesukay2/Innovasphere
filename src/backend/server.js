@@ -4,15 +4,17 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 import multer from 'multer';
 import path from 'path';
+import process from 'process'
+import dotenv from 'dotenv'
 
-
+dotenv.config();
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb+srv://lilian19wilson92:WJXuR4cB2PMrvCFf@job-portal.1isea.mongodb.net/?retryWrites=true&w=majority&appName=Job-Portal');
+mongoose.connect(process.env.DATABASE_URL);
 
 // Define the Job Schema
 const jobSchema = new mongoose.Schema({
@@ -111,6 +113,6 @@ app.post('/api/apply', upload.fields([
     }
   });
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0',() => {
   console.log(`Server running on port ${port}`);
 });
